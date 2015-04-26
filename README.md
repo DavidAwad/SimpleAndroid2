@@ -14,4 +14,4 @@ So why use `AsyncTask` in the first place? Here's the idea, our curent activity 
 
 # Contributors
 
-## Obvious huge thank you to [Shreyas Hirday]() for the original codebase. 
+## Obvious huge thank you to [Shreyas Hirday](https://github.com/shreyashirday) for the original codebase. 
