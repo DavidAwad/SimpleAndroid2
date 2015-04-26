@@ -1,19 +1,7 @@
-# RUMADWorkshopTwo
+# Simple Android 2 
 
-Synopsis
-========
+So this is another Android Walkthrough that will show you how to use the [Android AsyncTask](http://developer.android.com/reference/android/os/AsyncTask.html) class to query for data in the background of your android activities as well as query the [Sugabus API](http://api.rutgers.edu/) and render that data into our activity. 
 
-This is a simple app that pulls and displays data from an online server using the Sugabus API. This app demonstrates the use of
-AsyncTasks and HTTP methods as well as the material learned in the first workshop.
+So you already know that most of the action is in mainActivity.java and mainActivity.xml, so let's take a quick look at those. 
 
 
-Links
-=====
-Here are some links to look at before the workshop:
-1. [Rutgers API](http://api.rutgers.edu/)
-2. [AsyncTasks](http://developer.android.com/reference/android/os/AsyncTask.html)
-
-Questions?
-==========
-
-If you have any questions, message the RUMAD Facebook page or email shreyashirday@gmail.com
