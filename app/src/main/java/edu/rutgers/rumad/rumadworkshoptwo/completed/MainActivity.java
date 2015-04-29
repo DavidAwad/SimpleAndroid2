@@ -62,64 +62,40 @@ public class MainActivity extends ActionBarActivity {
 
         //base url for all our endpoints
         String baseUrl = "http://runextbus.heroku.com/";
-
-
-
         //this method is executes the following code in the background thread
         //so that there is no crashing because of interaction with UI Thread
         @Override
         protected Object doInBackground(Void... params) {
-
             //initialize http client
             HttpClient client = new DefaultHttpClient();
-
-
             //can change this to make any url you want
             String endpoint = getActiveUrl();
-
             //initialize a GET request with whatever url you want, im using active as an example
             HttpGet get = new HttpGet(endpoint);
-
-
-
             try{
                 //execute the get request and store response
                 HttpResponse response = client.execute(get);
-
                 //get status code of http request
                 StatusLine statusLine = response.getStatusLine();
-
                 //initialize byte outputstream to store data
                 ByteArrayOutputStream bos = new ByteArrayOutputStream();
-
                 //store data from http response
                 response.getEntity().writeTo(bos);
-
                 //close the stream
                 bos.close();
-
                 //if the status code is OK
                 if(statusLine.getStatusCode() == HttpStatus.SC_OK){
-
                     //return data in a string
                     return bos.toString();
-
                 }else{
-
                     //something got messed up
                     return  null;
                 }
-
             }catch (IOException e){
-
-
                 //lets see what the error was
                 Log.e("ERROR",e.getMessage());
-
                 return  null;
-
             }
-
         }
 
         @Override
