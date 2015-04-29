@@ -14,8 +14,10 @@ Looking inside of the java, that's where most of the action is. You know at a hi
 private  class getSugasBusData extends AsyncTask<Void,Void,Object>{
         //base url for all our endpoints
         String baseUrl = "http://runextbus.heroku.com/";
-        //this method is executes the following code in the background thread
-        //so that there is no crashing because of interaction with UI Thread
+        /**
+        This method is executes the following code in the background thread
+        so that there is no crashing because of interaction with UI Thread
+        */
         @Override
         protected Object doInBackground(Void... params) {
             //initialize http client
@@ -27,27 +29,19 @@ private  class getSugasBusData extends AsyncTask<Void,Void,Object>{
             try{
                 //execute the get request and store response
                 HttpResponse response = client.execute(get);
-
                 //get status code of http request
                 StatusLine statusLine = response.getStatusLine();
-
                 //initialize byte outputstream to store data
                 ByteArrayOutputStream bos = new ByteArrayOutputStream();
-
                 //store data from http response
                 response.getEntity().writeTo(bos);
-
                 //close the stream
                 bos.close();
-
                 //if the status code is OK
                 if(statusLine.getStatusCode() == HttpStatus.SC_OK){
-
                     //return data in a string
                     return bos.toString();
-
                 }else{
-
                     //something got messed up
                     return  null;
                 }
@@ -59,6 +53,7 @@ private  class getSugasBusData extends AsyncTask<Void,Void,Object>{
         }
     }
 ```
+
 
 So why use `AsyncTask` in the first place? Here's the idea, our curent activity has control of the user. If we want to make queries for information, instead of forcing the user to wait, we could preemptively look up information without holding up the current user activity*. So what we say is let's run our query in a *separate thread*, and do other things with the processor and the user while our app has priority. This is important because you will need your apps to be snappy! 
 
