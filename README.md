@@ -62,6 +62,7 @@ So why use `AsyncTask` in the first place? Here's the idea, our curent activity 
 # Resources
 ## [Android Activity Lifecycle](http://developer.android.com/reference/android/app/Activity.html)
 
+# Want a completely unfinished third part? [Why the hell not](https://github.com/DavidAwad/SimpleAndroid3)?!
 
 # Contributors
 
