@@ -27,7 +27,6 @@ import edu.rutgers.rumad.rumadworkshoptwo.R;
 
 
 public class MainActivity extends ActionBarActivity {
-
     //initialize null pointers to UI elements of interest
     Button getData;
     TextView dataTextView;
@@ -49,16 +48,11 @@ public class MainActivity extends ActionBarActivity {
                     new getSugasBusData().execute();
             }
         });
-
-
-
-
     }
 
 
 
     private  class getSugasBusData extends AsyncTask<Void,Void,Object>{
-
         //base url for all our endpoints
         String baseUrl = "http://runextbus.heroku.com/";
         //this method is executes the following code in the background thread
@@ -104,19 +98,15 @@ public class MainActivity extends ActionBarActivity {
             String data = null;
             //ensure nothing went wrong
             if(result != null){
-
                 try{
                     //create a json object with the data
                     JSONObject jsonObject = new JSONObject(result.toString());
-
                     //get an array of all the routes active, we get the 'routes' from looking at the json data
                     JSONArray routesArray = jsonObject.getJSONArray("routes");
-
                     if(routesArray.length() == 0){
                         dataTextView.setText("No data :(");
                         return;
                     }
-
                     //iterate through every route
                     for(int i = 0; i < routesArray.length(); i++){
                         //get the route at this index
@@ -141,7 +131,6 @@ public class MainActivity extends ActionBarActivity {
                 dataTextView.setText("Oops, there was an error");
             }
         }
-
 
         //url to get all active buses
         private  String getActiveUrl(){
