@@ -56,7 +56,7 @@ private  class getSugasBusData extends AsyncTask<Void,Void,Object>{
 
 So why use `AsyncTask` in the first place? Here's the idea, our curent activity has control of the user. If we want to make queries for information, instead of forcing the user to wait, we could preemptively look up information without holding up the current user activity*. So what we say is let's run our query in a *separate thread*, and do other things with the processor and the user while our app has priority. This is important because you will need your apps to be snappy!
 
-So we have our class, what it does is pretty straightforward, we hit a button, on that button press we have a handler that creates an AsyncTask that creates a request to our webservice, if we succesfully get a response back, then we use our 
+So we have our class, what it does is pretty straightforward, we hit a button, on that button press we have a handler that creates an AsyncTask that creates a request to our webservice, if we succesfully get a response back, then we edit our textview to reflect this new information. And that's really all this app does, pretty straightforward! 
 
 *For a better understanding of why this should be done this way, check out the docs on the [Android Activity Lifecycle](http://developer.android.com/reference/android/app/Activity.html). 
 
