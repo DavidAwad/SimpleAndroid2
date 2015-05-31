@@ -41,7 +41,6 @@ public class MainActivity extends ActionBarActivity {
         getData = (Button)findViewById(R.id.getDataBtn);
         dataTextView = (TextView)findViewById(R.id.dataText);
 
-
         //we want the data to show once we press the button
         getData.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,10 +100,8 @@ public class MainActivity extends ActionBarActivity {
         @Override
         protected void onPostExecute(Object result) {
             super.onPostExecute(result);
-
             //initialize a null string to hold route titles
             String data = null;
-
             //ensure nothing went wrong
             if(result != null){
 
@@ -128,37 +125,21 @@ public class MainActivity extends ActionBarActivity {
                         String routeTitle = route.getString("title");
                         //store it
                         data += routeTitle + "\n";
-
-
-
-
                     }
-
                     //print the data!
                     dataTextView.setText(data);
-
-
                 }catch(JSONException e){
-
                     //let's see what the error was
                     Log.e("ERROR",e.getMessage());
-
                     //there's no data so fill in filler text
                     dataTextView.setText("Oops, there was an error!");
-
                 }
-
-
             }
             //uh oh result is null
             else{
-
                 //there's no data so fill in filler text
                 dataTextView.setText("Oops, there was an error");
-
             }
-
-
         }
 
 
@@ -191,11 +172,7 @@ public class MainActivity extends ActionBarActivity {
         private  String getConfigUrl(){
             return baseUrl + "config";
         }
-
-
-
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
